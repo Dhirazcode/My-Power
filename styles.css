@@ -92,20 +92,24 @@ color: rgba(255, 255, 255, 0.7);
 
 
 /* Profile Section */
+/* Profile Section */
 .profile-section {
   background-color: #8a182b;
   padding: 20px;
   color: white;
   display: flex;
+  flex-direction: row; /* Keep horizontal layout */
   justify-content: space-between;
   align-items: center;
   border-radius: 8px;
   margin: 20px;
+  flex-wrap: wrap;  
 }
 
 .profile-info {
   display: flex;
-  align-items: center;
+  align-items: center; /* Align items in the center vertically */
+  flex: 1;  
 }
 
 .profile-picture {
@@ -118,7 +122,7 @@ color: rgba(255, 255, 255, 0.7);
 
 .profile-details {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Keep name and badge vertically aligned */
 }
 
 .profile-name {
@@ -136,9 +140,10 @@ color: rgba(255, 255, 255, 0.7);
 }
 
 .profile-stats {
-  display: flex;
-  gap: 10px;
-  margin-left: 15px;
+  display: flex; /* Keep stats horizontal */
+  flex-direction: row; /* Ensure horizontal layout */
+  gap: 15px; /* Space between stats */
+  margin-left: 15px;  
 }
 
 .visit-btn {
@@ -148,7 +153,102 @@ color: rgba(255, 255, 255, 0.7);
   padding: 8px 15px;
   border-radius: 5px;
   cursor: pointer;
+  align-self: center;  
 }
+
+/* Responsive Design - Ensure horizontal layout on all devices */
+
+/* Large devices (desktops, laptops) */
+@media (min-width: 1025px) {
+  .profile-section {
+    flex-direction: row;  
+  }
+}
+
+/* Medium devices (tablets) */
+@media (max-width: 1024px) {
+  .profile-section {
+    flex-direction: row;  
+    align-items: center;
+  }
+}
+
+/* Small devices (mobile phones) */
+@media (max-width: 768px) {
+  .profile-section {
+    flex-direction: row; /* Maintain horizontal layout */
+    align-items: center;  
+  }
+
+  .profile-info {
+    width: auto; /* Full width on mobile */
+    margin-bottom: 15px; /* Space below profile info */
+  }
+
+  .profile-stats {
+    flex-direction: row; /* Ensure stats are always horizontal */
+    margin-left: 0; /* Remove left margin */
+    gap: 10px; /* Spacing between stats */
+  }
+
+  .visit-btn {
+    align-self: stretch; /* Stretch button to fill space */
+    margin-top: 10px; 
+  }
+}
+
+/* Extra Small devices */
+@media (max-width: 480px) {
+  .profile-section {
+    padding: 10px;  
+  }
+
+  .profile-name {
+    font-size: 1rem;  
+  }
+
+  .profile-badge {
+    font-size: 0.8rem;  
+  }
+
+  .profile-stats {
+    flex-direction: row; /* Keep stats horizontal */
+    justify-content: flex-start; /* Align to start */
+    gap: 5px;  
+    margin-left: 0;  
+  }
+
+  .visit-btn {
+    padding: 6px 10px;  
+  }
+}
+
+/* Extra Extra Small devices */
+@media (max-width: 360px) {
+  .profile-section {
+    padding: 5px;  
+  }
+
+  .profile-name {
+    font-size: 0.9rem;  
+  }
+
+  .profile-badge {
+    font-size: 0.7rem;  
+  }
+
+  .profile-stats {
+    flex-direction: row; /* Keep stats horizontal */
+    gap: 2px;  
+    margin-left: 0;  
+  }
+
+  .visit-btn {
+    padding: 5px;  
+    font-size: 0.8rem;  
+  }
+}
+
 
 /* Bottom Navigation */
 .bottom-nav {
@@ -751,14 +851,7 @@ color: #718096;
       max-width: 200px;
   }
 
-  .profile-section {
-      flex-direction: row;
-      align-items: center;
-  }
-
-  .profile-stats {
-      margin-left: 10px;
-  }
+   
 
   .bottom-nav {
       flex-direction: row;
@@ -819,17 +912,7 @@ color: #718096;
       margin-top: 10px;
   }
 
-  .profile-section {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 10px 0;
-  }
-
-  .profile-stats {
-      margin-left: 0;
-      margin-top: 10px;
-  }
-
+   
   .bottom-nav {
       flex-direction: row;
       padding: 10px;
@@ -897,35 +980,7 @@ color: #718096;
       font-size: 0.8rem;
   }
 
-  .profile-section {
-      padding: 10px 0;
-  }
-
-  .profile-picture {
-      width: 40px;
-      height: 40px;
-  }
-
-  .profile-name {
-      font-size: 1rem;
-  }
-
-  .profile-badge {
-      font-size: 0.8rem;
-      padding: 1px 6px;
-  }
-
-  .profile-stats {
-      flex-direction: column;
-      align-items: flex-start;
-      margin-left: 0;
-  }
-
-  .visit-btn {
-      padding: 6px 12px;
-      font-size: 0.85rem;
-  }
-
+   
   .bottom-nav {
       padding: 8px;
   }
